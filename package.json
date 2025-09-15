@@ -1,0 +1,40 @@
+{
+  "name": "authmethod-testing",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.tsx",
+  "dependencies": {
+    "@rjsf/core": "5.21.1",
+    "@rjsf/utils": "5.21.1",
+    "@rjsf/validator-ajv8": "5.21.1",
+    "@thoughtspot/rest-api-sdk": "latest",
+    "@thoughtspot/visual-embed-sdk": "latest",
+    "@types/react-resizable": "3.0.8",
+    "loader-utils": "3.2.1",
+    "re-resizable": "6.10.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-json-view": "^1.21.3",
+    "react-modal": "3.16.1",
+    "react-resizable": "3.0.5",
+    "react-router": "6.16.0",
+    "react-router-dom": "^6.16.0",
+    "react-scripts": "5.0.1",
+    "react-toastify": "^10.0.6"
+  },
+  "devDependencies": {
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.9",
+    "@types/react-modal": "latest",
+    "typescript": "4.4.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "dev": "PORT=31000 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+}
