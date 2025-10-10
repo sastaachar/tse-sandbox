@@ -5,9 +5,9 @@ import {
   ThoughtSpotRestApi,
 } from "@thoughtspot/rest-api-sdk";
 import { HostEvent } from "@thoughtspot/visual-embed-sdk";
-import { TsEmbed } from "@thoughtspot/visual-embed-sdk/lib/src/embed/ts-embed";
+// import { TsEmbed } from "@thoughtspot/visual-embed-sdk";
 
-export const hostEventDemo = async (embed: TsEmbed) => {
+export const hostEventDemo = async (embed: any) => {
   const data = await embed.trigger(HostEvent.SaveAnswer, {
     name: "",
     description: "",

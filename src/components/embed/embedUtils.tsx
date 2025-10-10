@@ -4,9 +4,9 @@ import {
   LiveboardEmbed,
   AppEmbed,
   SearchEmbed,
-  SageEmbed
+  SageEmbed,
 } from "@thoughtspot/visual-embed-sdk/react";
-import { HostEvent,  SearchBarEmbed } from "@thoughtspot/visual-embed-sdk";
+import { HostEvent, SearchBarEmbed } from "@thoughtspot/visual-embed-sdk";
 
 import { configs } from "../../configs";
 import Form from "@rjsf/core";
@@ -15,7 +15,7 @@ import validator from "@rjsf/validator-ajv8";
 import { useRef } from "react";
 import { useAppConfig } from "../../contexts/appConfig";
 import { useGlobalModal } from "../GlobalModal";
-import { TsEmbed } from "@thoughtspot/visual-embed-sdk/lib/src/embed/ts-embed";
+// import { TsEmbed } from "@thoughtspot/visual-embed-sdk";
 
 export const hostEvents = configs.hostEvents;
 
@@ -73,7 +73,7 @@ export const commonStyles: CustomisationsInterface = {
   style: {
     customCSS: {
       variables: {
-        "--ts-var-root-background" : "#2b2d42",
+        "--ts-var-root-background": "#2b2d42",
 
         "--ts-var-nav-background": "#2b2d42",
         "--ts-var-nav-color": "white",
@@ -82,7 +82,6 @@ export const commonStyles: CustomisationsInterface = {
         "--ts-var-button--secondary-color": "white",
         "--ts-var-button--secondary--hover-background": "#2b2d62",
       },
-    
     },
   },
 };

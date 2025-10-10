@@ -1,9 +1,9 @@
 import "./styles.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Landing } from "./components/landing";
 
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Modal from "react-modal";
@@ -16,6 +16,7 @@ import { MySearchBarEmbed } from "./components/embed/searchBar";
 import { MySageEmbed } from "./components/embed/sage";
 import { MyAppEmbed } from "./components/embed/fullApp";
 import { AppConfigProvider } from "./contexts/appConfig";
+import { autoInit } from "./utils/sdkHelpers";
 
 function Navbar() {
   return (
@@ -30,6 +31,16 @@ function Navbar() {
 }
 
 function AppRouter() {
+
+  useEffect(() => {
+    const hasInitStarted = autoInit();
+    if (hasInitStarted) {
+      toast("Auto Init started", { type: "success" });
+    } else {
+      toast("Missing configs for init go to home page to set them", { type: "error" });
+    }
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>

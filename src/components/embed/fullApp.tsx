@@ -3,6 +3,7 @@ import {
   AppEmbed,
   Page,
   EmbedEvent,
+  LiveboardEmbed,
 } from "@thoughtspot/visual-embed-sdk/react";
 import { getSessionInfo, tokenizedFetch } from "@thoughtspot/visual-embed-sdk";
 import { useEffect } from "react";
@@ -72,14 +73,25 @@ export function MyAppEmbed() {
         <AppEmbed
           preRenderId="app-embed"
           ref={embedRef}
-          pageId={Page.Liveboards}
+          pageId={Page.Search}
           linkOverride={true}
           showPrimaryNavbar={true}
           onParameterChanged={(d) => {
             console.info("onParameterChanged", d);
           }}
-          {...(embedConfig?.fullApp || {})}
           customizations={commonStyles}
+          enableApiIntercept={true}
+          onOnBeforeGetVizDataIntercept={(paload, res) => {
+            console.log(paload, "paload");
+            // const eecute = confirm("Do you want to proceed?");
+            res({ data: { execute: true } });
+          }}
+          isOnBeforeGetVizDataInterceptEnabled={true}
+          additionalFlags={{
+            pinboardVisibleVizs: ['754977f5-177a-492b-b79a-b703e33db9ef'] as any,
+          }}
+          // {...(embedConfig?.fullApp || {})}
+          // interceptUrls={["DATA"]}
         />
       </div>
     </>

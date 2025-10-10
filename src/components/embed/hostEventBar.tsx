@@ -2,10 +2,7 @@ import {
   EmbedEvent,
   HostEvent,
   MessagePayload,
-  UIPassthroughEvent,
-  UiPassthroughEvent,
 } from "@thoughtspot/visual-embed-sdk/react";
-// import { TsEmbed } from "@thoughtspot/visual-embed-sdk";
 import { useEffect, useRef, useState } from "react";
 
 import { useGlobalModal } from "../GlobalModal";
@@ -217,45 +214,45 @@ export const getCommonHostEventButtons = (
       embedRef,
       buttonName: "Pin with param",
     }),
-    createHostEventCallback({
-      hostEvent: HostEvent.SaveAnswer,
-      schema: getDefaultSaveSchema(hostEventParams),
-      embedRef,
-      buttonName: "SaveAnswer with Param",
-    }),
-    {
-      name: "getAnswerPageConfig",
-      callback: async () => {
-        const data = await embedRef.current.triggerUiPassThrough(
-          UiPassthroughEvent.getAnswerPageConfig,
-          {}
-        );
-        showModalContent(JSON.stringify(data, null, 2));
-      },
-      type: "secondary",
-    },
-    {
-      name: "getPinboardPageConfig",
-      callback: async () => {
-        const data = await embedRef.current.triggerUiPassThrough(
-          UiPassthroughEvent.getPinboardPageConfig,
-          {}
-        );
-        showModalContent(JSON.stringify(data, null, 2));
-      },
-      type: "secondary",
-    },
-    {
-      name: "getAvailableUiPassthroughs",
-      callback: async () => {
-        const data = await embedRef.current.triggerUIPassThrough(
-          UIPassthroughEvent.GetAvailableUIPassthroughs,
-          {}
-        );
-        showModalContent(JSON.stringify(data, null, 2));
-      },
-      type: "secondary",
-    },
+    // createHostEventCallback({
+    //   hostEvent: HostEvent.SaveAnswer,
+    //   schema: getDefaultSaveSchema(hostEventParams),
+    //   embedRef,
+    //   buttonName: "SaveAnswer with Param",
+    // }),
+    // {
+    //   name: "getAnswerPageConfig",
+    //   callback: async () => {
+    //     const data = await embedRef.current.triggerUIPassThrough(
+    //       UIPassthroughEvent.GetAnswerConfig,
+    //       {}
+    //     );
+    //     showModalContent(JSON.stringify(data, null, 2));
+    //   },
+    //   type: "secondary",
+    // },
+    // {
+    //   name: "getPinboardPageConfig",
+    //   callback: async () => {
+    //     const data = await embedRef.current.triggerUIPassThrough(
+    //       UIPassthroughEvent.GetLiveboardConfig,
+    //       {}
+    //     );
+    //     showModalContent(JSON.stringify(data, null, 2));
+    //   },
+    //   type: "secondary",
+    // },
+    // {
+    //   name: "getAvailableUiPassthroughs",
+    //   callback: async () => {
+    //     const data = await embedRef.current.triggerUIPassThrough(
+    //       UIPassthroughEvent.GetAvailableUIPassthroughs,
+    //       {}
+    //     );
+    //     showModalContent(JSON.stringify(data, null, 2));
+    //   },
+    //   type: "secondary",
+    // },
   ];
 };
 
@@ -309,21 +306,21 @@ export const getAnswerEmbedApiCustomButton = (
       showModalContent,
       embedRef
     ),
-    {
-      name: "getAnswerPageConfig",
-      callback: async () => {
-        console.log(
-          "Calling getAnswerPageConfig with",
-          parameters.getAnswerPageConfig
-        );
-        const res = await embedRef.current.triggerUiPassThrough(
-          UiPassthroughEvent.getAnswerPageConfig,
-          {}
-        );
-        console.log(res);
-        showModalContent(JSON.stringify(res, null, 2));
-      },
-    },
+    // {
+    //   name: "getAnswerPageConfig",
+    //   callback: async () => {
+    //     console.log(
+    //       "Calling getAnswerPageConfig with",
+    //       parameters.getAnswerPageConfig
+    //     );
+    //     const res = await embedRef.current.triggerUIPassThrough(
+    //       UIPassthroughEvent.GetAnswerConfig,
+    //       {}
+    //     );
+    //     console.log(res);
+    //     showModalContent(JSON.stringify(res, null, 2));
+    //   },
+    // },
     {
       name: "With Params Pin",
       callback: async () => {

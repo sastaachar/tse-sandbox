@@ -41,13 +41,52 @@ export function MyLiveboardOne() {
           additionalFlags={{
             overrideConsoleLogs: false,
             "embed-hostEventParameterization": true,
-            isOnBeforeGetVizDataInterceptEnabled: true,
+            isApiInterceptEnabled: true,
           }}
           customizations={commonStyles}
           {...(embedConfig?.liveboard || {})}
           fullHeight={true}
           lazyLoadingForFullHeight={true}
           lazyLoadingMargin={"0px"}
+          onApiIntercept={(data, res) => {
+            console.log(data, "data");
+            const value = confirm("Do you want to proceed?");
+
+            const errr = {
+              "errors": [
+                  {
+                      "message": "aluu lele lele",
+                      isErrorFromUser: true,
+                      title: "oiuytugfhcbv njkiuyghvnbm"
+                  }
+              ],
+              "data": null
+          }
+            res({
+              data: {
+                execute: value,
+                response: {
+                  body: {
+                    errors: [...errr.errors,
+                      {
+                        message: "Some error happened",
+                        path: ["user", "name"],
+                        extensions: {
+                          exception: {
+                            message: "awd", 
+                        },
+                          code: "BAD_USER_INPUT",
+                          details: "Username cannot be empty",
+                        },
+                      },
+                    ],
+                    data: null
+                  },
+                  status: 200,
+                },
+              },
+            });
+          }}
         />
       </div>
     </>

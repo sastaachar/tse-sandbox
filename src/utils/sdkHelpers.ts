@@ -13,8 +13,9 @@ import {
 } from "@thoughtspot/visual-embed-sdk";
 import { configs } from "../configs";
 import { toast } from "react-toastify";
+import { AppConfig } from "../contexts/appConfig";
+import { getItemFromStorage } from "./storage";
 
-import { getEmbedConfig } from "@thoughtspot/visual-embed-sdk";
 
 export const implementedAuthTypes = [
   AuthType.Basic,
@@ -45,11 +46,11 @@ const registerAuthEvent = ({
     });
     console.log("Auth fail", e);
   });
-  aEE.on(AuthStatus.SDK_SUCCESS, (d) => {
+  aEE.on(AuthStatus.SDK_SUCCESS, () => {
     initTiming.end = Date.now();
     initTiming.total = (initTiming.end - initTiming.start) / 1000;
     toast(`Init login success: ${initTiming.total}s`, { type: "success" });
-    console.log("Login SDK_SUCCESS", d);
+    console.log("Login SDK_SUCCESS");
   });
 };
 
@@ -171,6 +172,55 @@ const embeddedSSOInit = (tsHost: string, logLevel: LogLevel) => {
     }),
     name: AuthType.EmbeddedSSO,
   });
+};
+
+export const handleInit = (config: Partial<AppConfig>) => {
+  const {
+    authType,
+    tsHost = "",
+    username = "",
+    password = "",
+    logLevel = LogLevel.ERROR,
+    backendHost,
+  } = config;
+  switch (authType) {
+    case AuthType.TrustedAuthTokenCookieless:
+      trustedAuthTokenCookielessInit(
+        tsHost,
+        username,
+        password,
+        logLevel,
+        backendHost
+      );
+      break;
+    case AuthType.TrustedAuthToken:
+      trustedAuthTokenInit(tsHost, username, password, logLevel, backendHost);
+      break;
+    case AuthType.None:
+      noneInit(tsHost, logLevel);
+      break;
+    case AuthType.Basic:
+      basicInit(tsHost, username, password, logLevel);
+      break;
+    case AuthType.SAMLRedirect:
+      samlRedirectInit(tsHost, logLevel);
+      break;
+    case AuthType.EmbeddedSSO:
+      embeddedSSOInit(tsHost, logLevel);
+      break;
+    default:
+      window.alert("Auth type not implemented in sandbox");
+  }
+};
+
+export const autoInit = () => {
+  const config = getItemFromStorage();
+  if (!config.authType || !config.tsHost) {
+    return true;
+  }
+
+  handleInit(config);
+  return true;
 };
 
 export {

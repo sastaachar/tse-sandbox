@@ -10,6 +10,7 @@ import { AuthType, LogLevel, logout } from "@thoughtspot/visual-embed-sdk";
 import {
   basicInit,
   embeddedSSOInit,
+  handleInit,
   implementedAuthTypes,
   noneInit,
   samlRedirectInit,
@@ -121,44 +122,7 @@ const InfoContent = () => {
   );
 };
 
-const handleInitClick = (config: Partial<AppConfig>) => {
-  const {
-    authType,
-    tsHost = "",
-    username = "",
-    password = "",
-    logLevel = LogLevel.ERROR,
-    backendHost,
-  } = config;
-  switch (authType) {
-    case AuthType.TrustedAuthTokenCookieless:
-      trustedAuthTokenCookielessInit(
-        tsHost,
-        username,
-        password,
-        logLevel,
-        backendHost
-      );
-      break;
-    case AuthType.TrustedAuthToken:
-      trustedAuthTokenInit(tsHost, username, password, logLevel, backendHost);
-      break;
-    case AuthType.None:
-      noneInit(tsHost, logLevel);
-      break;
-    case AuthType.Basic:
-      basicInit(tsHost, username, password, logLevel);
-      break;
-    case AuthType.SAMLRedirect:
-      samlRedirectInit(tsHost, logLevel);
-      break;
-    case AuthType.EmbeddedSSO:
-      embeddedSSOInit(tsHost, logLevel);
-      break;
-    default:
-      window.alert("Auth type not implemented in sandbox");
-  }
-};
+
 
 export const NewLanding = () => {
   const {
@@ -292,7 +256,7 @@ export const NewLanding = () => {
         <button
           className="landing-controls-button"
           onClick={() =>
-            handleInitClick({
+            handleInit({
               tsHost,
               authType,
               username,

@@ -11,7 +11,10 @@ let cachedToken = "";
 
 const expiryTime = 5 * 1000;
 const getNewToken = async () => {
-  const config = createBasic;
+  const config = createBearerAuthenticationConfig("https://something.thoughtspot.com", {
+    username: "",
+    password: "",
+  });
   const tsRestApiClient = new ThoughtSpotRestApi(config);
 
   const data = await tsRestApiClient.getFullAccessToken({
