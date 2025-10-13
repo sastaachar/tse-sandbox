@@ -18,8 +18,8 @@ dependencies:
     specifier: latest
     version: 2.17.0
   '@thoughtspot/visual-embed-sdk':
-    specifier: file:/Users/justin.mathew/Documents/source/ts_code_workspace/visual-embed-sdk
-    version: file:../visual-embed-sdk(react-dom@18.2.0)(react@18.2.0)
+    specifier: 1.42.1-alpha.1
+    version: 1.42.1-alpha.1(react-dom@18.2.0)(react@18.2.0)
   '@types/react-resizable':
     specifier: 3.0.8
     version: 3.0.8
@@ -2415,6 +2415,24 @@ packages:
       es6-promise: 4.2.8
       url-parse: 1.5.10
       whatwg-fetch: 3.6.20
+    dev: false
+
+  /@thoughtspot/visual-embed-sdk@1.42.1-alpha.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-jtDRMElVcb864n76dEkISqGw9M0PfqYz66F3tnf5A9rIQekK+5IAUlyYD78InowiJi0khTNVPiK9vARVjuXkGQ==}
+    peerDependencies:
+      react: '> 16.8.0'
+      react-dom: '> 16.8.0'
+    dependencies:
+      classnames: 2.5.1
+      eventemitter3: 4.0.7
+      lodash: 4.17.21
+      mixpanel-browser: 2.47.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      ts-deepmerge: 6.2.1
+      tslib: 2.8.1
+      use-deep-compare-effect: 1.8.1(react@18.2.0)
+      yaml: 2.8.1
     dev: false
 
   /@tootallnate/once@1.1.2:
@@ -11297,24 +11315,4 @@ packages:
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
-    dev: false
-
-  file:../visual-embed-sdk(react-dom@18.2.0)(react@18.2.0):
-    resolution: {directory: ../visual-embed-sdk, type: directory}
-    id: file:../visual-embed-sdk
-    name: '@thoughtspot/visual-embed-sdk'
-    peerDependencies:
-      react: '> 16.8.0'
-      react-dom: '> 16.8.0'
-    dependencies:
-      classnames: 2.5.1
-      eventemitter3: 4.0.7
-      lodash: 4.17.21
-      mixpanel-browser: 2.47.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      ts-deepmerge: 6.2.1
-      tslib: 2.8.1
-      use-deep-compare-effect: 1.8.1(react@18.2.0)
-      yaml: 2.8.1
     dev: false
