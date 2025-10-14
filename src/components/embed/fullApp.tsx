@@ -87,8 +87,8 @@ export function MyAppEmbed() {
             res({
               data: {
                 execute: execute,
-                errorText: "lega kya ?",
-                errorDescription: "dega kya",
+                errorText: "errorTexterrorText errorText ?",
+                errorDescription: "errorDescriptionerrorDescription !",
               },
             });
           }}
