@@ -82,9 +82,15 @@ export function MyAppEmbed() {
           customizations={commonStyles}
           enableApiIntercept={true}
           onOnBeforeGetVizDataIntercept={(paload, res) => {
-            console.log(paload, "paload");
-            // const eecute = confirm("Do you want to proceed?");
-            res({ data: { execute: true } });
+           console.log(paload, "paload");
+            const execute = confirm("Do you want to proceed?");
+            res({
+              data: {
+                execute: execute,
+                errorText: "lega kya ?",
+                errorDescription: "dega kya",
+              },
+            });
           }}
           isOnBeforeGetVizDataInterceptEnabled={true}
           additionalFlags={{
