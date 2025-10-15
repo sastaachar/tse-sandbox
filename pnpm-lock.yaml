@@ -18,8 +18,8 @@ dependencies:
     specifier: latest
     version: 2.17.0
   '@thoughtspot/visual-embed-sdk':
-    specifier: 1.42.1-alpha.1
-    version: 1.42.1-alpha.1(react-dom@18.2.0)(react@18.2.0)
+    specifier: 1.42.1-alpha.7
+    version: 1.42.1-alpha.7(react-dom@18.2.0)(react@18.2.0)
   '@types/react-resizable':
     specifier: 3.0.8
     version: 3.0.8
@@ -2417,8 +2417,8 @@ packages:
       whatwg-fetch: 3.6.20
     dev: false
 
-  /@thoughtspot/visual-embed-sdk@1.42.1-alpha.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-jtDRMElVcb864n76dEkISqGw9M0PfqYz66F3tnf5A9rIQekK+5IAUlyYD78InowiJi0khTNVPiK9vARVjuXkGQ==}
+  /@thoughtspot/visual-embed-sdk@1.42.1-alpha.7(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-KWlHmvevQNqJj97XoTWcWFzF8fhjgen7DQkygCOF6R/hz2UeRWvDOJPyjB+fUSV8R8hWW8xnEgBijN0vVsa85g==}
     peerDependencies:
       react: '> 16.8.0'
       react-dom: '> 16.8.0'

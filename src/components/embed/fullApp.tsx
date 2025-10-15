@@ -81,20 +81,25 @@ export function MyAppEmbed() {
           }}
           customizations={commonStyles}
           enableApiIntercept={true}
-          onOnBeforeGetVizDataIntercept={(paload, res) => {
-           console.log(paload, "paload");
+          onOnBeforeGetVizDataIntercept={(payload, res) => {
+            console.log(payload, "payload");
             const execute = confirm("Do you want to proceed?");
             res({
               data: {
-                execute: execute,
-                errorText: "errorTexterrorText errorText ?",
-                errorDescription: "errorDescriptionerrorDescription !",
+                error: {
+                  execute: execute,
+                  errorText: "Aditya is a good boy errorText ?",
+                  errorDescription:
+                    "Shivam kumar is a good boy errorDescription !",
+                },
               },
             });
           }}
           isOnBeforeGetVizDataInterceptEnabled={true}
           additionalFlags={{
-            pinboardVisibleVizs: ['754977f5-177a-492b-b79a-b703e33db9ef'] as any,
+            pinboardVisibleVizs: [
+              "754977f5-177a-492b-b79a-b703e33db9ef",
+            ] as any,
           }}
           // {...(embedConfig?.fullApp || {})}
           // interceptUrls={["DATA"]}
