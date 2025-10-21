@@ -5,17 +5,11 @@ import {
   createBearerAuthenticationConfig,
 } from "@thoughtspot/rest-api-sdk";
 import { AuthFailureType, LogLevel } from "@thoughtspot/visual-embed-sdk";
-import {
-  AuthEventEmitter,
-  AuthStatus,
-  AuthType,
-  init,
-} from "@thoughtspot/visual-embed-sdk";
+import { AuthStatus, AuthType, init } from "@thoughtspot/visual-embed-sdk";
 import { configs } from "../configs";
 import { toast } from "react-toastify";
 import { AppConfig } from "../contexts/appConfig";
 import { getItemFromStorage } from "./storage";
-
 
 export const implementedAuthTypes = [
   AuthType.Basic,
@@ -27,13 +21,7 @@ export const implementedAuthTypes = [
 ];
 
 let initTiming = { start: 0, end: 0, total: 0 };
-const registerAuthEvent = ({
-  aEE,
-  name,
-}: {
-  aEE: AuthEventEmitter;
-  name: string;
-}) => {
+const registerAuthEvent = ({ aEE, name }: { aEE: any; name: string }) => {
   initTiming.start = Date.now();
   aEE.on(AuthStatus.SUCCESS, (data) => {
     toast("Embed login success", { type: "success" });
