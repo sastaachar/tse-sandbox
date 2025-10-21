@@ -5,7 +5,11 @@ import {
   EmbedEvent,
   LiveboardEmbed,
 } from "@thoughtspot/visual-embed-sdk/react";
-import { getSessionInfo, tokenizedFetch } from "@thoughtspot/visual-embed-sdk";
+import {
+  getSessionInfo,
+  tokenizedFetch,
+  InterceptedApiType,
+} from "@thoughtspot/visual-embed-sdk";
 import { useEffect } from "react";
 import { useAppConfig } from "../../contexts/appConfig";
 import { useGlobalModal } from "../GlobalModal";
@@ -80,27 +84,113 @@ export function MyAppEmbed() {
             console.info("onParameterChanged", d);
           }}
           customizations={commonStyles}
+          // Old feature with new flag
+          // enableApiIntercept={true}
+          // onOnBeforeGetVizDataIntercept={(payload, res) => {
+          //   console.log(payload, "payload");
+          //   const execute = confirm("Do you want to proceed?");
+          //   res({
+          //     data: {
+          //       error: {
+          //         errorText: "Aditya is a good boy errorText ?",
+          //         errorDescription:
+          //           "Shivam kumar is a good boy errorDescription !",
+          //       },
+          //       execute: execute,
+          //     },
+          //   });
+          // }}
+          // isOnBeforeGetVizDataInterceptEnabled={true}
+          /////////////////////////////////////
+          // block liveboard embed data calls
           enableApiIntercept={true}
-          onOnBeforeGetVizDataIntercept={(payload, res) => {
+          onApiIntercept={(payload, res) => {
             console.log(payload, "payload");
             const execute = confirm("Do you want to proceed?");
             res({
               data: {
                 error: {
-                  execute: execute,
                   errorText: "Aditya is a good boy errorText ?",
                   errorDescription:
                     "Shivam kumar is a good boy errorDescription !",
                 },
+                execute: execute,
               },
             });
           }}
+          interceptUrls={[
+            InterceptedApiType.LIVEBOARD_DATA,
+            // InterceptedApiType.ANSWER_DATA
+          ]}
           isOnBeforeGetVizDataInterceptEnabled={true}
-          additionalFlags={{
-            pinboardVisibleVizs: [
-              "754977f5-177a-492b-b79a-b703e33db9ef",
-            ] as any,
-          }}
+          /////////////////////////////////////
+          // interceptUrls={[
+          //   InterceptedApiType.ANSWER_DATA,
+          //   // "https://172.32.10.83:8443/prism/?op=GetTrendingList",
+          // ]}
+          // onApiIntercept={(payload, res) => {
+          //   console.log(payload, "swanirka");
+          //   const hey = confirm("hi guysss");
+          //   res({
+          //     data: {
+          //       execute: hey,
+          //       response: {
+          //         body: {
+          //           data: {
+          //             getTrendingList: {
+          //               pinboards: [
+          //                 {
+          //                   id: "33248a57-cc70-4e39-9199-fb5092283381",
+          //                   type: "PINBOARD_ANSWER_BOOK",
+          //                   author: "59481331-ee53-42be-a548-bd87be6ddd4a",
+          //                   authorDisplayName: "Administrator",
+          //                   authorName: "tsadmin",
+          //                   hasLenientDiscoverability: false,
+          //                   name: "Priyanshu ka pinboard",
+          //                   stats: {
+          //                     views: 35,
+          //                     __typename: "TrendingStats",
+          //                   },
+          //                   description:
+          //                     "This pinboard contains a chart, a table and a headline visualization based on TPCH.",
+          //                   isFavorite: false,
+          //                   isVerified: false,
+          //                   __typename: "TrendingItem",
+          //                 },
+          //               ],
+          //               answers: [
+          //                 {
+          //                   id: "32e79029-1c9b-4270-8844-f01b702544b0",
+          //                   type: "QUESTION_ANSWER_BOOK",
+          //                   author: "67e15c06-d153-4924-a4cd-ff615393b60f",
+          //                   authorDisplayName: "System User",
+          //                   authorName: "system",
+          //                   hasLenientDiscoverability: false,
+          //                   name: "Sample Event Tracing for Consumption (Change the Credit Window ID and the Timestamp)",
+          //                   stats: {
+          //                     views: 6,
+          //                     __typename: "TrendingStats",
+          //                   },
+          //                   description: null,
+          //                   isFavorite: false,
+          //                   isVerified: false,
+          //                   __typename: "TrendingItem",
+          //                 },
+          //               ],
+          //               __typename: "Trending",
+          //             },
+          //           },
+          //         },
+          //       },
+          //     },
+          //   });
+          // }}
+
+          // additionalFlags={{
+          //   pinboardVisibleVizs: [
+          //     "754977f5-177a-492b-b79a-b703e33db9ef",
+          //   ] as any,
+          // }}
           // {...(embedConfig?.fullApp || {})}
           // interceptUrls={["DATA"]}
         />
