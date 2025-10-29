@@ -86,25 +86,7 @@ export function MyAppEmbed() {
           customizations={commonStyles}
           // Old feature with new flag
           // enableApiIntercept={true}
-          // onOnBeforeGetVizDataIntercept={(payload, res) => {
-          //   console.log(payload, "payload");
-          //   const execute = confirm("Do you want to proceed?");
-          //   res({
-          //     data: {
-          //       error: {
-          //         errorText: "Aditya is a good boy errorText ?",
-          //         errorDescription:
-          //           "Shivam kumar is a good boy errorDescription !",
-          //       },
-          //       execute: execute,
-          //     },
-          //   });
-          // }}
-          // isOnBeforeGetVizDataInterceptEnabled={true}
-          /////////////////////////////////////
-          // block liveboard embed data calls
-          enableApiIntercept={true}
-          onApiIntercept={(payload, res) => {
+          onOnBeforeGetVizDataIntercept={(payload, res) => {
             console.log(payload, "payload");
             const execute = confirm("Do you want to proceed?");
             res({
@@ -118,10 +100,28 @@ export function MyAppEmbed() {
               },
             });
           }}
-          interceptUrls={[
-            InterceptedApiType.LIVEBOARD_DATA,
-            // InterceptedApiType.ANSWER_DATA
-          ]}
+          // isOnBeforeGetVizDataInterceptEnabled={true}
+          /////////////////////////////////////
+          // block liveboard embed data calls
+          // enableApiIntercept={true}
+          // onApiIntercept={(payload, res) => {
+          //   console.log(payload, "payload");
+          //   const execute = confirm("Do you want to proceed?");
+          //   res({
+          //     data: {
+          //       error: {
+          //         errorText: "Aditya is a good boy errorText ?",
+          //         errorDescription:
+          //           "Shivam kumar is a good boy errorDescription !",
+          //       },
+          //       execute: execute,
+          //     },
+          //   });
+          // }}
+          // interceptUrls={[
+          //   InterceptedApiType.LIVEBOARD_DATA,
+          //   // InterceptedApiType.ANSWER_DATA
+          // ]}
           isOnBeforeGetVizDataInterceptEnabled={true}
           /////////////////////////////////////
           // interceptUrls={[

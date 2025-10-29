@@ -445,7 +445,7 @@ export function HostEventBar({
         isLoaded.current = true;
         embedRef?.current?.on(EmbedEvent.ALL, (e) => {
           const time = Date.now();
-          const id = e?.type + time + Math.random();
+          const id = "" + e?.type + time + Math.random();
           const event = {
             event: e,
             time,
