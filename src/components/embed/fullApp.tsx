@@ -102,6 +102,9 @@ export function MyAppEmbed() {
               },
             });
           }}
+          // For this to work properly in spotter we need this
+          // This is a known bug and team is working on it
+          additionalFlags={{ isSpotterExperienceEnabled: true }}
           // isOnBeforeGetVizDataInterceptEnabled={true}
           /////////////////////////////////////
           // block liveboard embed data calls
