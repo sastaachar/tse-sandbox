@@ -88,7 +88,9 @@ export function MyAppEmbed() {
           // enableApiIntercept={true}
           onOnBeforeGetVizDataIntercept={(payload, res) => {
             console.log(payload, "payload");
-            const execute = confirm("Do you want to proceed?");
+            const execute = confirm(
+              "Query , " + payload?.data?.data?.answer?.query
+            );
             res({
               data: {
                 error: {
