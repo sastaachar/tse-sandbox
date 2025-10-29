@@ -18,8 +18,8 @@ dependencies:
     specifier: latest
     version: 2.17.0
   '@thoughtspot/visual-embed-sdk':
-    specifier: https://pkg.pr.new/thoughtspot/visual-embed-sdk/@thoughtspot/visual-embed-sdk@c7fa693cb2f51f123d55d4247420c96c41bfde1e
-    version: '@pkg.pr.new/thoughtspot/visual-embed-sdk/@thoughtspot/visual-embed-sdk@c7fa693cb2f51f123d55d4247420c96c41bfde1e(react-dom@18.2.0)(react@18.2.0)'
+    specifier: https://pkg.pr.new/thoughtspot/visual-embed-sdk/@thoughtspot/visual-embed-sdk@0c33102440c1f4b8f82a485bd0f688d8704c7b83
+    version: '@pkg.pr.new/thoughtspot/visual-embed-sdk/@thoughtspot/visual-embed-sdk@0c33102440c1f4b8f82a485bd0f688d8704c7b83(react-dom@18.2.0)(react@18.2.0)'
   '@types/react-resizable':
     specifier: 3.0.8
     version: 3.0.8
@@ -11299,9 +11299,9 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  '@pkg.pr.new/thoughtspot/visual-embed-sdk/@thoughtspot/visual-embed-sdk@c7fa693cb2f51f123d55d4247420c96c41bfde1e(react-dom@18.2.0)(react@18.2.0)':
-    resolution: {tarball: https://pkg.pr.new/thoughtspot/visual-embed-sdk/@thoughtspot/visual-embed-sdk@c7fa693cb2f51f123d55d4247420c96c41bfde1e}
-    id: '@pkg.pr.new/thoughtspot/visual-embed-sdk/@thoughtspot/visual-embed-sdk@c7fa693cb2f51f123d55d4247420c96c41bfde1e'
+  '@pkg.pr.new/thoughtspot/visual-embed-sdk/@thoughtspot/visual-embed-sdk@0c33102440c1f4b8f82a485bd0f688d8704c7b83(react-dom@18.2.0)(react@18.2.0)':
+    resolution: {tarball: https://pkg.pr.new/thoughtspot/visual-embed-sdk/@thoughtspot/visual-embed-sdk@0c33102440c1f4b8f82a485bd0f688d8704c7b83}
+    id: '@pkg.pr.new/thoughtspot/visual-embed-sdk/@thoughtspot/visual-embed-sdk@0c33102440c1f4b8f82a485bd0f688d8704c7b83'
     name: '@thoughtspot/visual-embed-sdk'
     version: 1.42.3
     peerDependencies:
