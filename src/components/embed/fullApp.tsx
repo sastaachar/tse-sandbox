@@ -89,7 +89,7 @@ export function MyAppEmbed() {
           onOnBeforeGetVizDataIntercept={(payload, res) => {
             console.log(payload, "payload");
             const execute = confirm(
-              "Query , " + payload?.data?.data?.answer?.query
+              "Query , " + payload?.data?.data?.answer?.search_query
             );
             res({
               data: {
